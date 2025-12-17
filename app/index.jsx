@@ -1,18 +1,38 @@
-import { StyleSheet, Text, View, Pressable } from "react-native";
-import React from "react";
+import { StyleSheet } from "react-native";
+import { Link } from "expo-router";
+
+import ThemedView from "../components/ThemedView";
+import ThemedText from "../components/ThemedText";
+import ThemedLogo from "../components/ThemedLogo";
+import Spacer from "../components/Spacer";
+import { Colors } from "../constants/Colors";
 
 const Home = () => {
   return (
-    <View style={styles.container}>
-      <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-        React Native Starter App.
-      </Text>
-      <Pressable
-        style={{ padding: 10, borderRadius: 10, backgroundColor: "#e5e5e5" }}
-      >
-        <Text style={{ color: "white" }}>Hello</Text>
-      </Pressable>
-    </View>
+    <ThemedView style={styles.container}>
+      <ThemedLogo />
+      <Spacer />
+
+      <ThemedText style={styles.title} title={true}>
+        The Number 1
+      </ThemedText>
+
+      <ThemedText style={{ marginTop: 10, marginBottom: 30 }}>
+        Reading List App
+      </ThemedText>
+
+      <Link href="/login" style={styles.link}>
+        <ThemedText>Login</ThemedText>
+      </Link>
+
+      <Link href="/register" style={styles.link}>
+        <ThemedText>Register</ThemedText>
+      </Link>
+
+      <Link href="/profile" style={styles.link}>
+        <ThemedText>Profile</ThemedText>
+      </Link>
+    </ThemedView>
   );
 };
 
@@ -23,5 +43,16 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  img: {
+    marginVertical: 20,
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  link: {
+    marginVertical: 10,
+    borderBottomWidth: 1,
   },
 });
